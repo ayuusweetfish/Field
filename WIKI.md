@@ -11,7 +11,7 @@ On Unix-like systems, `FULLY_PORTABLE=false` is also possible for a system-integ
 ```
 ln -s ~/nomad/bashrc ~/.bashrc
 ln -s ~/nomad/alacritty.toml ~/.alacritty.toml
-ln -s ~/nomad/.gitconfig ~/.gitconfig
+ln -s ~/nomad/gitconfig ~/.gitconfig
 ```
 
 ### VT
