@@ -5,7 +5,7 @@ if $FULLY_PORTABLE; then
   [[ $- == *i* ]] && echo FIELD_ROOT=$FIELD_ROOT
   export HOME=$FIELD_ROOT
 else
-  export FIELD_ROOT=~/field
+  export FIELD_ROOT=$(dirname -- $(readlink -f "${BASH_SOURCE[0]}"))
 fi
 
 if [[ $- == *i* ]]; then export LC_ALL=C.UTF-8; fi
