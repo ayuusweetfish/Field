@@ -1,4 +1,4 @@
-# Nomad
+# Field
 
 My minimalist, reproducible setup that creates a rather consistent working environment across different computers and operating systems (Windows and Unix-like).
 

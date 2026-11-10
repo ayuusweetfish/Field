@@ -6,12 +6,12 @@ Install WSL and use `Alacritty-v0.15.1-portable.bat` to launch. This setup logs 
 
 ## Unix-like
 
-On Unix-like systems, `FULLY_PORTABLE=false` is also possible for a system-integrated setup. Place this directory at `~/nomad` and create the following links:
+On Unix-like systems, `FULLY_PORTABLE=false` is also possible for a system-integrated setup. Place this directory at `~/field` and create the following links:
 
 ```
-ln -s ~/nomad/bashrc ~/.bashrc
-ln -s ~/nomad/alacritty.toml ~/.alacritty.toml
-ln -s ~/nomad/gitconfig ~/.gitconfig
+ln -s ~/field/bashrc ~/.bashrc
+ln -s ~/field/alacritty.toml ~/.alacritty.toml
+ln -s ~/field/gitconfig ~/.gitconfig
 ```
 
 ### VT
