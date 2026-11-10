@@ -2,6 +2,6 @@
 	name = Ayu
 	email = a@ayu.land
 [core]
-	editor = vim -u $NOMAD/vimrc
+	editor = vim -u $FIELD/vimrc
 	eol = lf
 	autocrlf = input
