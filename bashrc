@@ -1,11 +1,11 @@
 FULLY_PORTABLE=false
 
 if $FULLY_PORTABLE; then
-  export FIELD=${FIELD:-$(dirname -- $(readlink -f "${BASH_SOURCE[0]}"))}
-  [[ $- == *i* ]] && echo FIELD=$FIELD
-  export HOME=$FIELD
+  export FIELD_ROOT=${FIELD_ROOT:-$(dirname -- $(readlink -f "${BASH_SOURCE[0]}"))}
+  [[ $- == *i* ]] && echo FIELD_ROOT=$FIELD_ROOT
+  export HOME=$FIELD_ROOT
 else
-  export FIELD=~/field
+  export FIELD_ROOT=~/field
 fi
 
 if [[ $- == *i* ]]; then export LC_ALL=C.UTF-8; fi
@@ -15,14 +15,14 @@ export PS1='\[\033[0;32m\]\u\[\033[m\]:\[\033[34m\]\W\[\033[m\]\[\033[33m\]♪\[
 HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
 if $FULLY_PORTABLE; then
-  HISTFILE=$FIELD/bash_history
+  HISTFILE=$FIELD_ROOT/bash_history
 fi
 HISTSIZE=1000000
 HISTFILESIZE=200000000
 HISTTIMEFORMAT="%F %T "
 
-export VIMINIT="source $FIELD/vimrc"
-alias vim="vim -u $FIELD/vimrc"
+export VIMINIT="source $FIELD_ROOT/vimrc"
+alias vim="vim -u $FIELD_ROOT/vimrc"
 
 if [ "$TERM" = "linux" ]; then
   echo -en "\e]P03B4252"
@@ -82,9 +82,9 @@ string F117 = "\002\033[1;5D"
 EOF
   read scr_w scr_h <<< $(fbset -i -fb $(con2fbmap $(fgconsole) | perl -ne 'if (/framebuffer (\d+)/) { print "/dev/fb$1" }') | perl -ne 'if (/mode "(\d+)x(\d+)"/) { print "$1 $2\n" }')
   if [ "$scr_h" -gt 500 ]; then
-    setfont $FIELD/Terminus16.psf -d
+    setfont $FIELD_ROOT/Terminus16.psf -d
   else
-    setfont $FIELD/Terminus16.psf -h17
+    setfont $FIELD_ROOT/Terminus16.psf -h17
   fi
   clear
 fi
@@ -92,7 +92,7 @@ fi
 if [ "$TERM" = "linux" ] || [ -n "$ATTACH_TMUX" ]; then
   unset ATTACH_TMUX
   while true; do
-    tmux attach -t "(●'◡'●)" || tmux -f $FIELD/tmux.conf new -s "(●'◡'●)"
+    tmux attach -t "(●'◡'●)" || tmux -f $FIELD_ROOT/tmux.conf new -s "(●'◡'●)"
     if [ $? -eq 0 ]; then
       tmux has-session -t "(●'◡'●)" && break
       [ "$TERM" = "linux" ] || exit
